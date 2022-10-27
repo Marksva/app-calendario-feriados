@@ -3,12 +3,14 @@ const filtraFeriados = (feriados, numeroFeriados) => {
 
     const dataAtual = new Date();
     const anoAtual = dataAtual.getFullYear();
-
+    
+     
     let proximosFeriados = [];
     let novaDataFeriado; 
 
     feriados.forEach(feriado => {
 
+        // instanciando a data do feriado 
         novaDataFeriado = new Date(feriado.data + '/' + anoAtual);
         
         // mudar o ano da data do feriado que antecedem a data atual;
@@ -20,13 +22,14 @@ const filtraFeriados = (feriados, numeroFeriados) => {
             nome: feriado.nome,
             data: novaDataFeriado
         });
+
     });
 
-    console.table(proximosFeriados)
+    // console.table(proximosFeriados);
     proximosFeriados.sort((a,b) => a.data - b.data );
-    console.table(proximosFeriados)
+    // console.table(proximosFeriados);
     proximosFeriados = proximosFeriados.slice(0, numeroFeriados);
-    console.table(proximosFeriados)
+    // console.table(proximosFeriados);
     return proximosFeriados;
 }
 
